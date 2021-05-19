@@ -1,0 +1,22 @@
+<div class="container">
+<h1>Restaurants</h1>
+<h2>Add New Restaurant</h2>
+   <%= link_to new_restaurant_path do %>
+      <i class="fas fa-plus">Add New</i>
+    <% end %>
+  <div class="cards">
+     <% @restaurants.each do |restaurant| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <div class="card-product">
+        <%= image_tag "https://source.unsplash.com/200x200/?#{restaurant.category}" %>
+        <div class="card-product-infos">
+          <h2><%= restaurant.name %></h2>
+          <h4><%= restaurant.category %></h4>
+          <p><%= restaurant.address %></p>
+          <p><%= restaurant.phone_number %></p>
+        </div>
+        <%= link_to "", restaurant_path(restaurant), class: 'card-link'  %>
+      </div>
+    <% end %>
+  </div>
+</div>

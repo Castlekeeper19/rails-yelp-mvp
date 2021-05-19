@@ -1,0 +1,23 @@
+<div class="container d.flex justify-content-center">
+  <div class="card-trip">
+    <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
+    <%= image_tag "https://source.unsplash.com/400x400/?#{@restaurant.category}" %>
+    <div class="card-trip-infos">
+      <div>
+        <h2> <%= @restaurant.name %></h2>
+        <h4><%= @restaurant.category %></h4>
+        <p><%= @restaurant.address %></p>
+        <p><%= @restaurant.phone_number %></p>
+        <%= link_to "Add a review", new_restaurant_review_path(@restaurant)  %>
+        <div class="d.flex">
+          <% @restaurant.reviews.each do |review| %>
+          <p><%= review.content %></p>
+          <p> <%= "⭐️" * review.rating.to_i  %>  </p>
+          <% end %>
+        </div>
+      </div>
+      <h2 class="card-trip-pricing"> <%=  %> </h2>
+    </div>
+    <%= link_to 'Back', restaurants_path, class: 'btn btn-light'  %>
+  </div>
+</div>
